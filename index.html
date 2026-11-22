@@ -505,12 +505,8 @@ setTimeout(function(){try{var p=gEl("gpin");if(p)p.focus()}catch(e){}},80)}
     <div class="slipbadges">
       <div class="slipbadge"><div class="sb-val">7 am – 1 pm</div><div class="sb-lbl">Polling hours</div></div>
       <div class="slipbadge"><div class="sb-val">2 votes</div><div class="sb-lbl">Sarpanch + ward member</div></div>
-      <div class="slipbadge" style="background:#fdf2f8;border-color:#fbcfe8"><div class="sb-val" style="color:#be185d">Pink: కత్తెర</div><div class="sb-lbl" style="color:#9d174d">సర్పంచ్ గుర్తు</div></div>
-      <div class="slipbadge"><div class="sb-val" style="color:#1e293b">White: ప్రెషర్ కుక్కర్</div><div class="sb-lbl" style="color:#334155">10వ వార్డు గుర్తు</div></div>
-    </div>
-      <div class="slipbadge"><div class="sb-val">2 votes</div><div class="sb-lbl">Sarpanch + ward member</div></div>
-      <div class="slipbadge" style="background:#fdf2f8;border-color:#fbcfe8"><div class="sb-val" style="color:#be185d">🌸 Pink: ✂️ Scissors</div><div class="sb-lbl" style="color:#9d174d">సర్పంచ్ గుర్తు: కత్తెర</div></div>
-      <div class="slipbadge"><div class="sb-val" style="color:#1e293b">⚪ White: 🍲 Cooker</div><div class="sb-lbl" style="color:#334155">10వ వార్డు గుర్తు: కుక్కర్</div></div>
+      <div class="slipbadge" style="background:#fdf2f8;border-color:#fbcfe8"><div class="sb-val" style="color:#be185d"><svg viewBox="0 0 64 64" width="30" height="30" fill="none" stroke="#be185d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;display:inline-block"><circle cx="16" cy="18" r="8" fill="#fdf2f8"/><circle cx="16" cy="46" r="8" fill="#fdf2f8"/><path d="M22 23L54 49"/><path d="M22 41L54 15"/><circle cx="34" cy="32" r="2.5" fill="#be185d"/></svg></div><div class="sb-lbl" style="color:#9d174d">Pink (సర్పంచ్)</div></div>
+      <div class="slipbadge"><div class="sb-val" style="color:#1e293b"><svg viewBox="0 0 64 64" width="32" height="32" fill="none" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;display:inline-block"><path d="M12 28h32v18c0 4.4-3.6 8-8 8H20c-4.4 0-8-3.6-8-8V28z" fill="#f1f5f9"/><path d="M10 28h36v3H10z" fill="#cbd5e1"/><path d="M12 28c0-5 6-8 16-8s16 3 16 8H12z" fill="#e2e8f0"/><path d="M28 20v-5h4v5"/><rect x="26" y="11" width="8" height="5" rx="1.5" fill="#1e293b"/><path d="M44 26h14c1.5 0 2.5 1 2.5 2.5S59.5 31 58 31H44" stroke-width="3.5"/><rect x="48" y="25" width="10" height="7" rx="2" fill="#1e293b"/><path d="M10 32H6c-1 0-2 1-2 2v2c0 1 1 2 2 2h4"/></svg></div><div class="sb-lbl" style="color:#334155">White (10వ వార్డు)</div></div>
     </div>
     <div id="slipphonebox" class="fphonebox" style="display:none"><span class="fphonelbl">వాట్సాప్ నంబర్:</span><input type="tel" id="sliptargetmob" class="fphoneinp" placeholder="10 అంకెల మొబైల్ నంబర్" maxlength="10"></div>
     <div id="slipbody" class="slipbox"></div>
@@ -848,14 +844,14 @@ function renderSingleSlipHtml(r, num, total) {
   const lmkStr = lmk[r.s] ? ' (' + esc(lmk[r.s]) + ')' : '';
   const famStr = fams[r.s] ? esc(fams[r.s]) : '-';
   const mobStr = mob[r.s] ? esc(mob[r.s]) : '-';
-  const candSym = (window._candSym || localStorage.getItem('pamur10sym') || 'ప్రెషర్ కుక్కర్');
+  const candSym = (window._candSym || localStorage.getItem('pamur10sym') || '-');
 
   const divHeader = (total && total > 1) ? '<div class="fdivider"><span>సభ్యుడు ' + num + ' / ' + total + '</span><span>#' + r.s + '</span></div>' : '';
 
   return divHeader +
     '<div class="sliprow"><span class="slipk">పోలింగ్ కేంద్రం:</span><span class="slipv" style="font-weight:700">పామూరు వార్డు 10 పోలింగ్ బూత్</span></div>' +
-    '<div class="sliprow"><span class="slipk">సర్పంచ్ గుర్తు (Pink):</span><span class="slipv" style="font-weight:700;color:#be185d">కత్తెర</span></div>' +
-    '<div class="sliprow"><span class="slipk">వార్డు గుర్తు (White):</span><span class="slipv" id="slipsym" style="font-weight:700;cursor:pointer" title="వార్డు అభ్యర్థి గుర్తు నమోదుకు క్లిక్ చేయండి">' + esc(candSym) + '</span></div>' +
+    '<div class="sliprow"><span class="slipk">సర్పంచ్ గుర్తు (Pink):</span><span class="slipv" style="vertical-align:middle"><svg viewBox="0 0 64 64" width="30" height="30" fill="none" stroke="#be185d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;display:inline-block"><circle cx="16" cy="18" r="8" fill="#fdf2f8"/><circle cx="16" cy="46" r="8" fill="#fdf2f8"/><path d="M22 23L54 49"/><path d="M22 41L54 15"/><circle cx="34" cy="32" r="2.5" fill="#be185d"/></svg></span></div>' +
+    '<div class="sliprow"><span class="slipk">వార్డు గుర్తు (White):</span><span class="slipv" id="slipsym" style="vertical-align:middle;cursor:pointer" title="వార్డు అభ్యర్థి గుర్తు నమోదుకు క్లిక్ చేయండి"><svg viewBox="0 0 64 64" width="32" height="32" fill="none" stroke="#1e293b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;display:inline-block"><path d="M12 28h32v18c0 4.4-3.6 8-8 8H20c-4.4 0-8-3.6-8-8V28z" fill="#f1f5f9"/><path d="M10 28h36v3H10z" fill="#cbd5e1"/><path d="M12 28c0-5 6-8 16-8s16 3 16 8H12z" fill="#e2e8f0"/><path d="M28 20v-5h4v5"/><rect x="26" y="11" width="8" height="5" rx="1.5" fill="#1e293b"/><path d="M44 26h14c1.5 0 2.5 1 2.5 2.5S59.5 31 58 31H44" stroke-width="3.5"/><rect x="48" y="25" width="10" height="7" rx="2" fill="#1e293b"/><path d="M10 32H6c-1 0-2 1-2 2v2c0 1 1 2 2 2h4"/></svg></span></div>' +
     '<div class="sliprow"><span class="slipk">క్రమ సంఖ్య:</span><span class="slipv" style="font-size:15px;color:#12925a;font-weight:700">#' + r.s + '</span></div>' +
     '<div class="sliprow"><span class="slipk">ఓటరు పేరు:</span><span class="slipv" style="font-weight:700">' + esc(r.n) + '</span></div>' +
     '<div class="sliprow"><span class="slipk">వయస్సు / లింగం:</span><span class="slipv">' + (r.a || '-') + ' సం||, ' + genStr + '</span></div>' +
@@ -957,8 +953,8 @@ $('slipwa').onclick = () => {
       '📅 *పోలింగ్:* 26/11/2026 | 7:00 AM - 1:00 PM' + LF +
       '🏛️ *పోలింగ్ కేంద్రం:* పామూరు వార్డు 10 పోలింగ్ బూత్' + LF +
       
-      '*సర్పంచ్ గుర్తు (Pink):* కత్తెర' + LF +
-      '*వార్డు గుర్తు (White):* ' + candSym + LF +
+      '*సర్పంచ్ గుర్తు (Pink):* ✂️' + LF +
+      '*వార్డు గుర్తు (White):* 🫕' + LF +
       '👨‍👩‍👧‍👦 *కుటుంబం:* ' + famName + ' (' + fvoters.length + ' మంది ఓటర్లు)' + LF +
       '━━━━━━━━━━━━━━━━━━━━━' + LF;
 
@@ -988,8 +984,8 @@ $('slipwa').onclick = () => {
     '📅 *పోలింగ్:* 26/11/2026 | 7:00 AM - 1:00 PM' + LF +
     '🏛️ *పోలింగ్ కేంద్రం:* పామూరు వార్డు 10 పోలింగ్ బూత్' + LF +
     
-    '*సర్పంచ్ గుర్తు (Pink):* కత్తెర' + LF +
-      '*వార్డు గుర్తు (White):* ' + candSym + LF +
+    '*సర్పంచ్ గుర్తు (Pink):* ✂️' + LF +
+      '*వార్డు గుర్తు (White):* 🫕' + LF +
     '*క్రమ సంఖ్య:* #' + r.s + LF +
     '*ఓటరు పేరు:* ' + r.n + ' (' + (r.a||'') + ' ' + r.g + ')' + LF +
     '*బంధువు:* ' + (r.rt||'') + ' ' + (r.rn||'') + LF +
@@ -1010,8 +1006,8 @@ $('slipwa').onclick = () => {
     '📅 *పోలింగ్:* 26/11/2026 | 7:00 AM - 1:00 PM' + String.fromCharCode(10) +
     '🏛️ *పోలింగ్ కేంద్రం:* పామూరు వార్డు 10 పోలింగ్ బూత్' + String.fromCharCode(10) +
     
-    '*సర్పంచ్ గుర్తు (Pink):* కత్తెర' + String.fromCharCode(10) +
-    '*వార్డు గుర్తు (White):* ' + candSym + String.fromCharCode(10) +
+    '*సర్పంచ్ గుర్తు (Pink):* ✂️' + String.fromCharCode(10) +
+    '*వార్డు గుర్తు (White):* 🫕' + String.fromCharCode(10) +
     '*క్రమ సంఖ్య:* #' + r.s + String.fromCharCode(10) +
     '*ఓటరు పేరు:* ' + r.n + ' (' + (r.a||'') + ' ' + r.g + ')' + String.fromCharCode(10) +
     '*బంధువు:* ' + (r.rt||'') + ' ' + (r.rn||'') + String.fromCharCode(10) +
