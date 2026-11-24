@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pamur-voter-w10-v9';
+const CACHE_NAME = 'pamur-voter-w10-v10';
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(['./', 'index.html']))
